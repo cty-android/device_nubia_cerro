@@ -1,0 +1,9 @@
+on boot
+    chown system system /proc/driver/lcd_hbm
+    chmod 0660 /proc/driver/lcd_hbm
+
+service vendor.livedisplay-hal-2-1 /vendor/bin/hw/vendor.lineage.livedisplay@2.1-service.nubia_cerro
+    class hal
+    user system
+    group system
+    writepid /dev/cpuset/system-background/tasks
