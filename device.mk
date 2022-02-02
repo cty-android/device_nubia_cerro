@@ -40,6 +40,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     CarrierConfigResCerro \
     FrameworkResCerro \
+    SettingsResCerro \
     SystemUIResCerro \
     TelephonyResCerro
 
