@@ -348,6 +348,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     CarrierConfigResCerro \
     FrameworkResCerro \
+    NubiaLineageAperture \
     SettingsResCerro \
     SystemUIResCerro \
     TelephonyResCerro
