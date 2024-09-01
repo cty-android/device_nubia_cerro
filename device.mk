@@ -36,6 +36,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init/init.recovery.qcom.rc:recovery/root/init.recovery.qcom.rc
 
+# Overlays
+PRODUCT_PACKAGES += \
+    FrameworkResCerro \
+    SystemUIResCerro
+
 # Shipping API level
 PRODUCT_SHIPPING_API_LEVEL := 34
 PRODUCT_EXTRA_VNDK_VERSIONS := $(PRODUCT_SHIPPING_API_LEVEL)
