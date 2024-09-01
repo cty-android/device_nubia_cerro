@@ -10,6 +10,7 @@ $(call inherit-product, build/make/target/product/core_64_bit_only.mk)
 
 # Inherit device-specific configurations
 $(call inherit-product, device/nubia/cerro/device.mk)
+$(call inherit-product, vendor/nubia/cerro/cerro-vendor.mk)
 
 # Inherit LineageOS configurations
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
