@@ -38,6 +38,7 @@ PRODUCT_COPY_FILES += \
 
 # Overlays
 PRODUCT_PACKAGES += \
+    CarrierConfigResCerro \
     FrameworkResCerro \
     SystemUIResCerro \
     TelephonyResCerro
