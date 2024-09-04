@@ -81,3 +81,11 @@ PRODUCT_PACKAGES += \
     update_engine \
     update_engine_sideload \
     update_verifier
+
+# WiFi Display
+PRODUCT_PACKAGES += \
+    android.media.audio.common.types-V2-cpp \
+    libnl
+
+PRODUCT_BOOT_JARS += \
+    WfdCommon

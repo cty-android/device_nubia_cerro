@@ -1,3 +1,23 @@
+# DPM
+system_ext/bin/dpmd
+system_ext/bin/tcmd
+system_ext/etc/dpm/dpm.conf
+system_ext/etc/init/dpmd.rc
+system_ext/etc/init/tcmd.rc
+system_ext/etc/permissions/com.qti.dpmframework.xml
+system_ext/etc/permissions/dpmapi.xml
+system_ext/etc/seccomp_policy/tcmd.policy
+system_ext/framework/com.qti.dpmframework.jar
+system_ext/framework/dpmapi.jar
+system_ext/lib64/com.qualcomm.qti.dpm.api@1.0.so
+system_ext/lib64/libdpmctmgr.so
+system_ext/lib64/libdpmfdmgr.so
+system_ext/lib64/libdpmframework.so
+system_ext/lib64/libdpmtcm.so
+system_ext/lib64/vendor.qti.hardware.dpmaidlservice-V1-ndk.so
+system_ext/lib64/vendor.qti.hardware.dpmservice@1.0.so
+system_ext/priv-app/dpmserviceapp/dpmserviceapp.apk
+
 # Telephony
 system/etc/sysconfig/qti_whitelist.xml
 system_ext/app/QtiTelephonyService/QtiTelephonyService.apk
@@ -67,6 +87,26 @@ system_ext/lib64/vendor.qti.imsrtpservice@3.0.so|919c4398097c8b818a415efccc57e98
 system_ext/lib64/vendor.qti.imsrtpservice@3.1.so|d1b6a6eabf17e43e98dcc4372fdabea4890f7cd8
 system_ext/priv-app/ims/ims.apk|a0fc363bc39bf35bcd56b172a84e2e5906107c73
 
+# Media
+system_ext/lib64/libmmosal.so
+system_ext/lib64/libmmparser_lite.so
+
+# QCC
+system_ext/app/QCC/QCC.apk
+system_ext/bin/qccsyshal@1.2-service
+system_ext/etc/init/vendor.qti.hardware.qccsyshal@1.2-service.rc
+system_ext/etc/permissions/com.qti.qcc.vendor_qcc.xml
+system_ext/lib64/libqcc.so
+system_ext/lib64/libqcc_file_agent_sys.so
+system_ext/lib64/libqccdme.so
+system_ext/lib64/libqccfileservice.so
+system_ext/lib64/vendor.qti.hardware.qccsyshal@1.0.so
+system_ext/lib64/vendor.qti.hardware.qccsyshal@1.1.so
+system_ext/lib64/vendor.qti.hardware.qccsyshal@1.2-halimpl.so
+system_ext/lib64/vendor.qti.hardware.qccsyshal@1.2.so
+system_ext/lib64/vendor.qti.hardware.qccvndhal@1.0.so
+system_ext/lib64/vendor.qti.qccvndhal_aidl-V1-ndk.so
+
 # QESD
 system_ext/app/QesdkSysService/QesdkSysService.apk
 system_ext/etc/vintf/manifest/vendor.qti.qesdsys.service.xml
@@ -75,3 +115,32 @@ system_ext/lib64/vendor.qti.qesdhal@1.0.so
 system_ext/lib64/vendor.qti.qesdhal@1.1.so
 system_ext/lib64/vendor.qti.qesdhal@1.2.so
 system_ext/lib64/vendor.qti.qesdhalaidl-V1-ndk.so
+
+# WiFi Display
+system/framework/WfdCommon.jar
+system_ext/bin/wfdservice64
+system_ext/etc/init/wfdservice.rc
+system_ext/etc/permissions/wfd-system-ext-privapp-permissions-qti.xml
+system_ext/etc/seccomp_policy/wfdservice64.policy
+system_ext/etc/wfdconfigsink.xml
+system_ext/lib64/libmmrtpdecoder.so
+system_ext/lib64/libmmrtpencoder.so
+system_ext/lib64/libwfdavenhancements.so
+system_ext/lib64/libwfdclient.so
+system_ext/lib64/libwfdcommonutils.so
+system_ext/lib64/libwfdconfigutils.so
+system_ext/lib64/libwfddisplayconfig.so
+system_ext/lib64/libwfdmminterface.so
+system_ext/lib64/libwfdmmsink.so
+system_ext/lib64/libwfdmmsrc_system.so
+system_ext/lib64/libwfdnative.so;SYMLINK=system_ext/priv-app/WfdService/lib/arm64/libwfdnative.so
+system_ext/lib64/libwfdrtsp.so
+system_ext/lib64/libwfdservice.so
+system_ext/lib64/libwfdsinksm.so
+system_ext/lib64/libwfduibcinterface.so
+system_ext/lib64/libwfduibcsink.so
+system_ext/lib64/libwfduibcsinkinterface.so
+system_ext/lib64/libwfduibcsrc.so
+system_ext/lib64/libwfduibcsrcinterface.so
+system_ext/lib64/vendor.qti.hardware.wifidisplaysession@1.0.so
+system_ext/priv-app/WfdService/WfdService.apk
