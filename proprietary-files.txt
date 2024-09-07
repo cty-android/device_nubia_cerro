@@ -109,7 +109,7 @@ system_ext/lib64/vendor.qti.qccvndhal_aidl-V1-ndk.so
 
 # QESD
 system_ext/app/QesdkSysService/QesdkSysService.apk
-system_ext/etc/vintf/manifest/vendor.qti.qesdsys.service.xml
+system_ext/etc/vintf/manifest/vendor.qti.qesdsys.service.xml|dc71c988d54dfc6fe26c8587d2f7224393dea859
 system_ext/lib64/libqesdk_ndk_platform.qti.so
 system_ext/lib64/vendor.qti.qesdhal@1.0.so
 system_ext/lib64/vendor.qti.qesdhal@1.1.so
