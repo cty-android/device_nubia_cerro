@@ -25,6 +25,9 @@ persist.dbg.wfc_avail_ovr=1
 # QEMU
 qemu.hw.mainkeys=0
 
+# Qualcomm
+ro.vendor.qti.va_aosp.support=1
+
 # RIL
 ril.subscription.types=NV,RUIM
 ro.telephony.default_network=33,33
