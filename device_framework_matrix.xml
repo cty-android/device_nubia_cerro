@@ -1,0 +1,19 @@
+<compatibility-matrix version="2.0" type="framework">
+    <hal format="aidl">
+        <name>vendor.zte.hardware.camera.transfer</name>
+        <version>1</version>
+        <interface>
+            <name>ITransfer</name>
+            <instance>vendor_zte/0</instance>
+        </interface>
+    </hal>
+    <hal format="aidl">
+        <name>vendor.zte.radio</name>
+        <version>1</version>
+        <interface>
+            <name>IVendorRadio</name>
+            <instance>slot1</instance>
+            <instance>slot2</instance>
+        </interface>
+    </hal>
+</compatibility-matrix>
