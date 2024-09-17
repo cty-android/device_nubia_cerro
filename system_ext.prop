@@ -1,6 +1,3 @@
-# Camera
-vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.aperture
-
 # Graphics
 ro.opengles.version=196610
 

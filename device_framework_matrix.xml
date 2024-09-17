@@ -7,6 +7,15 @@
             <instance>vendor_zte/0</instance>
         </interface>
     </hal>
+    <hal format="hidl">
+        <name>vendor.zte.hardware.laser</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ILaser</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <hal format="aidl">
         <name>vendor.zte.radio</name>
         <version>1</version>
