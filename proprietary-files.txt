@@ -149,6 +149,8 @@ vendor/etc/models/acd/event.eai
 vendor/etc/models/acd/music.eai
 vendor/etc/models/acd/speech.eai
 vendor/etc/seccomp_policy/qsap_voiceui.policy
+vendor/etc/vintf/manifest/manifest_non_qmaa_extn.xml
+vendor/etc/vintf/manifest/manifest_non_qmaa.xml
 vendor/lib64/hw/audio.primary.pineapple.so
 vendor/lib64/hw/sound_trigger.primary.pineapple.so
 vendor/lib64/libAlacSwDec.so
@@ -167,6 +169,7 @@ vendor/lib64/libarmemlog.so
 -vendor/lib64/libats.so
 vendor/lib64/libaudio_log_utils.so
 vendor/lib64/libaudiochargerlistener.so
+vendor/lib64/libaudioloop.so
 vendor/lib64/libcapiv2svacnnvendor.so
 vendor/lib64/libcapiv2svarnnvendor.so
 vendor/lib64/libcapiv2udk7vendor.so
@@ -684,6 +687,7 @@ vendor/lib64/libdualAlgo.so
 vendor/lib64/libeepromutil.so
 vendor/lib64/libhdr10plus.so
 vendor/lib64/libisphwsetting.so
+vendor/lib64/libipebpsstriping.so
 vendor/lib64/libmcxcroputil.so
 vendor/lib64/libmpbase.so
 vendor/lib64/libomp.so
@@ -701,6 +705,7 @@ vendor/lib64/libthreadutils.so
 vendor/lib64/libudc_enhance_912_1024.so
 vendor/lib64/libyuv_udc.so
 vendor/lib64/libzcv.so
+vendor/lib64/libqsegnet.so
 vendor/lib64/hw/camera.qcom.sm8650.so
 vendor/lib64/hw/camera.qcom.so
 vendor/lib64/hw/com.qti.chi.offline.so
@@ -1773,8 +1778,16 @@ vendor/etc/telephony_packages.xml
 vendor/etc/vintf/manifest/android.hardware.radio.config.xml
 vendor/etc/vintf/manifest/atfwd-saidl.xml
 vendor/etc/vintf/manifest/deviceinfo-saidl.xml
+vendor/etc/vintf/manifest/qcrilhook-saidl.xml
 vendor/etc/vintf/manifest/qms-saidl.xml
+vendor/etc/vintf/manifest/qtiradio-saidl.xml
+vendor/etc/vintf/manifest/vendor.qti.hardware.radio.am.xml
+vendor/etc/vintf/manifest/vendor.qti.hardware.radio.ims.xml
+vendor/etc/vintf/manifest/vendor.qti.hardware.radio.lpa.xml
 vendor/etc/vintf/manifest/vendor.qti.hardware.radio.qtiradioconfig.xml
+vendor/etc/vintf/manifest/vendor.qti.hardware.radio.uim_remote_client.xml
+vendor/etc/vintf/manifest/vendor.qti.hardware.radio.uim_remote_server.xml
+vendor/etc/vintf/manifest/vendor.qti.hardware.radio.uim.xml
 vendor/etc/vintf/manifest/vendor.zte.radio-manifest-ds.xml
 vendor/lib64/deviceInfoServiceModuleNr.so
 vendor/lib64/libQtiRilLoadable.so
@@ -1891,6 +1904,13 @@ vendor/lib64/libminkdescriptor.so
 vendor/lib64/libminksocket_vendor.so
 vendor/lib64/libnative-api.so
 vendor/lib64/libqcbor.so
+
+# Secure Element
+vendor/bin/hw/android.hardware.secure_element-service-aidl
+vendor/etc/init/android.hardware.secure_element.rc
+vendor/etc/vintf/manifest/android.hardware.secure_element.xml
+vendor/lib64/android.hardware.secure_element.thales.libse.so
+vendor/lib64/android.hardware.secure_element-V1-ndk.so
 
 # Secure Processor
 vendor/bin/hw/vendor.qti.hardware.secureprocessor
