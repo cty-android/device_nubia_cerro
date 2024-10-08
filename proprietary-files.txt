@@ -61,11 +61,27 @@ vendor/bin/adsprpcd
 vendor/bin/audioadsprpcd
 vendor/bin/loadalgo
 vendor/etc/init/vendor.qti.adsprpc-guestos-service.rc
+vendor/etc/init/vendor.qti.audio-adsprpc-service.rc
 vendor/lib64/libadsp_default_listener.so
 vendor/lib64/libadsprpc.so
 vendor/lib64/libloadalgo_stub.so
 
 # ADSP Modules
+vendor/lib/rfsa/adsp/libadsp_jpege_skel.so
+vendor/lib/rfsa/adsp/libbitml_nsp_skel.so
+vendor/lib/rfsa/adsp/libDspIOProxy_skel.so
+vendor/lib/rfsa/adsp/libdsp_streamer_binning.so
+vendor/lib/rfsa/adsp/libdsp_streamer_qvrcam_receiver.so
+vendor/lib/rfsa/adsp/libeye_tracking_dsp_sample_skel.so
+vendor/lib/rfsa/adsp/libhalide_hexagon_remote_skel.so
+vendor/lib/rfsa/adsp/libhme_dsp_skel.so
+vendor/lib/rfsa/adsp/libmctfengine_skel.so
+vendor/lib/rfsa/adsp/libmlawbpostproc_dsp_skel.so
+vendor/lib/rfsa/adsp/libQnnHtpV75Skel.so
+vendor/lib/rfsa/adsp/libqvr_3dof_tracker_skel.so
+vendor/lib/rfsa/adsp/libqvr_cam_dsp_driver_skel.so
+vendor/lib/rfsa/adsp/libqvr_dsp_driver_skel.so
+vendor/lib/rfsa/adsp/libtracker_6dof_skel_8450.so
 vendor/lib64/rfs/dsp/libapn_dsp_skel.so
 vendor/lib64/rfs/dsp/libbitml_nsp_75na_skel.so
 vendor/lib64/rfs/dsp/libdpp_engine_skel.so
@@ -201,6 +217,9 @@ vendor/lib64/soundfx/libasphere.so
 vendor/lib64/soundfx/libquasar.so
 vendor/lib64/soundfx/libshoebox.so
 
+# Audio Firmware
+vendor/firmware/aw882xx_acf.bin
+
 # Bluetooth
 vendor/bin/hw/android.hardware.bluetooth@1.1-service-qti
 vendor/etc/init/android.hardware.bluetooth@1.1-service-qti.rc
@@ -234,12 +253,17 @@ vendor/lib64/vendor.qti.hardware.fm@1.0.so
 
 # Camera
 vendor/bin/hw/vendor.qti.camera.provider-service_64
+vendor/bin/hw/vendor.zte.hardware.laser@1.0-service
+vendor/bin/camerahalvs
+vendor/etc/init/camerahalvs.rc
 vendor/etc/init/vendor.qti.camera.provider-service_64.rc
+vendor/etc/init/vendor.zte.hardware.laser@1.0-service.rc
 vendor/etc/vintf/manifest/vendor.qti.camera.offlinecamera-impl.xml
 vendor/etc/vintf/manifest/vendor.qti.camera.provider.xml
 vendor/etc/vintf/manifest/vendor.qti.camera.postproc-impl.xml
 vendor/etc/vintf/manifest/vendor.qti.camera.transfer.xml
 vendor/etc/vintf/manifest/vendor.qti.camera.aon-impl.xml
+vendor/etc/vintf/manifest/vendor.zte.hardware.laser@1.0-service.xml
 vendor/etc/camera/adaptive_config/mfnr_network_denoise_config.xml
 vendor/etc/camera/adaptive_shutter_config_moon.xml
 vendor/etc/camera/adaptive_shutter_config_night.xml
@@ -718,6 +742,8 @@ vendor/lib64/vendor.qti.hardware.camera.offlinecamera-V2-ndk.so
 vendor/lib64/vendor.qti.hardware.camera.offlinecamera-service-impl.so
 vendor/lib64/vendor.qti.hardware.camera.postproc@1.0-service-impl.so
 vendor/lib64/vendor.zte.hardware.camera.transfer-V1-ndk.so
+vendor/lib64/vendor.zte.hardware.laser@1.0-impl.so
+vendor/lib64/vendor.zte.hardware.laser@1.0.so
 
 # Camera firmware
 vendor/firmware/CAMERA_ICP.b00
@@ -1606,18 +1632,23 @@ system_ext/lib64/vendor.qti.qesdhal@1.1.so
 system_ext/lib64/vendor.qti.qesdhal@1.2.so
 system_ext/lib64/vendor.qti.qesdhalaidl-V1-ndk.so
 vendor/bin/qesdk-manager
+vendor/bin/qesdk-secmanager
 vendor/etc/init/qesdk-manager.rc
 vendor/etc/init/qesdk-secmanager.rc
+vendor/etc/seccomp_policy/qesdk.policy
 vendor/etc/seccomp_policy/qesdksec.policy
+vendor/etc/vintf/manifest/qesdk-manager.xml
+vendor/lib64/liblocation_qesdk.so
 vendor/lib64/libqesdk2_0.so
 vendor/lib64/libqesdk_manager.so
 vendor/lib64/libqesdoem_query_sys.so
-vendor/lib64/vendor.qti.qesdhal-impl.so
+vendor/lib64/libqti-qesdk-secure.so
 vendor/lib64/vendor.qti.qesdhal@1.0.so
 vendor/lib64/vendor.qti.qesdhal@1.1.so
 vendor/lib64/vendor.qti.qesdhal@1.2.so
 vendor/lib64/vendor.qti.qesdhal@1.3.so
 vendor/lib64/vendor.qti.qesdhalaidl-V1-ndk.so
+vendor/lib64/vendor.qti.qesdhal-impl.so
 vendor/lib64/vendor.qti.qesdsys-V3-ndk.so
 vendor/lib64/vendor.qti.qesdsys-V4-ndk.so
 
@@ -1669,10 +1700,17 @@ vendor/lib64/vendor.qti.qspmhal-V1-ndk.so
 vendor/lib64/vendor.qti.qspmhal-impl.so
 
 # QTI service tracker
+vendor/bin/hw/vendor.qti.hardware.servicetracker@1.2-service
 vendor/bin/hw/vendor.qti.hardware.servicetrackeraidl-service
+vendor/etc/init/vendor.qti.hardware.servicetracker@1.2-service.rc
 vendor/etc/init/vendor.qti.hardware.servicetrackeraidl-service.rc
+vendor/etc/vintf/manifest/vendor.qti.hardware.servicetracker@1.2-service.xml
 vendor/etc/vintf/manifest/vendor.qti.hardware.servicetrackeraidl-service.xml
+vendor/lib64/hw/vendor.qti.hardware.servicetracker@1.2-impl.so
 vendor/lib64/hw/vendor.qti.hardware.servicetrackeraidl-impl.so
+vendor/lib64/vendor.qti.hardware.servicetracker@1.0.so
+vendor/lib64/vendor.qti.hardware.servicetracker@1.1.so
+vendor/lib64/vendor.qti.hardware.servicetracker@1.2.so
 vendor/lib64/vendor.qti.hardware.servicetrackeraidl-V1-ndk.so
 
 # QVR
@@ -1915,6 +1953,10 @@ vendor/lib64/android.hardware.secure_element-V1-ndk.so
 # Secure Processor
 vendor/bin/hw/vendor.qti.hardware.secureprocessor
 vendor/bin/hw/vendor.qti.hardware.secureprocessor@1.0
+vendor/bin/hw/vendor.qti.hardware.spu-service
+vendor/bin/hw/vendor.qti.spu@2.0-service
+vendor/etc/init/init.spuservice.rc
+vendor/etc/init/init.vendor.qti.hardware.spu.service.rc
 vendor/etc/init/vendor.qti.hardware.secureprocessor.rc
 vendor/etc/init/vendor.qti.hardware.secureprocessor@1.0.rc
 vendor/etc/vintf/manifest/vendor.qti.hardware.secureprocessor.xml
@@ -1926,6 +1968,10 @@ vendor/lib64/vendor.qti.hardware.secureprocessor.config-V1-ndk.so
 vendor/lib64/vendor.qti.hardware.secureprocessor.config@1.0.so
 vendor/lib64/vendor.qti.hardware.secureprocessor.device-V1-ndk.so
 vendor/lib64/vendor.qti.hardware.secureprocessor.device@1.0.so
+vendor/lib64/vendor.qti.hardware.spu-V2-ndk.so
+vendor/lib64/vendor.qti.spu@1.0.so
+vendor/lib64/vendor.qti.spu@1.1.so
+vendor/lib64/vendor.qti.spu@2.0.so
 
 # SSR
 vendor/bin/ssr_diag
@@ -2057,6 +2103,10 @@ vendor/bin/time_daemon
 vendor/etc/init/init.time_daemon.rc
 vendor/lib64/libtime_genoff.so
 
+# Touchscreen Firmware
+vendor/firmware/goodix_cfg_group_9916r.bin
+vendor/firmware/goodix_firmware_9916r.bin
+
 # Trusted Execution Environment connector
 vendor/lib64/libGPMTEEC_vendor.so
 vendor/lib64/libGPTEE_vendor.so
@@ -2077,6 +2127,9 @@ vendor/lib64/vendor.qti.hardware.trustedui-V1-ndk.so
 vendor/lib64/vendor.qti.hardware.trustedui@1.0.so
 vendor/lib64/vendor.qti.hardware.trustedui@1.1.so
 vendor/lib64/vendor.qti.hardware.trustedui@1.2.so
+
+# Vibrator Firmware
+vendor/firmware/haptic_ram.bin
 
 # Video
 vendor/lib64/libstreamparser.so
@@ -2177,3 +2230,47 @@ vendor/lib64/libwfduibcsrcinterface_vendor.so
 vendor/lib64/libwfdutils_proprietary.so
 vendor/lib64/vendor.qti.hardware.wifidisplaysession@1.0.so
 vendor/lib64/vendor.qti.hardware.wifidisplaysessionl@1.0-halimpl.so
+
+# Test
+vendor/bin/ssgqmigd
+vendor/bin/hw/vendor.qti.hardware.trustedui@1.0-service-qti
+vendor/bin/hw/vendor.qti.hardware.trustedui-aidl-service-qti
+vendor/bin/trusteduilistener
+vendor/etc/init/trusteduilistener.rc
+vendor/etc/init/vendor.qti.hardware.trustedui@1.0-service-qti.rc
+vendor/etc/init/vendor.qti.hardware.trustedui-aidl-service-qti.rc
+vendor/etc/vintf/manifest/vendor.qti.hardware.trustedui-aidl-service.xml
+vendor/lib64/libloadtrusteduiapp.so
+vendor/lib64/libTrustedInputAIDL.so
+vendor/lib64/libTrustedInput.so
+vendor/lib64/libTrustedInputTZ.so
+vendor/lib64/libTrustedInputUtils.so
+vendor/lib64/libTrustedUIAIDL.so
+vendor/lib64/libTrustedUI.so
+vendor/lib64/libTrustedUITZ.so
+vendor/lib64/libTrustedUIVM.so
+vendor/lib64/libtrustedapploader.so
+vendor/lib64/vendor.qti.hardware.trustedui@1.0.so
+vendor/lib64/vendor.qti.hardware.trustedui@1.1.so
+vendor/lib64/vendor.qti.hardware.trustedui@1.2.so
+vendor/lib64/vendor.qti.hardware.trustedui-V1-ndk.so
+vendor/bin/tlpd
+vendor/etc/data/tlpd_oem_config.xml
+vendor/etc/init/tlpd.rc
+vendor/lib64/libtlpd_configmgr.so
+vendor/lib64/libtlpd_crypto.so
+vendor/lib64/libtlpd_internal.so
+vendor/lib64/libtlpd_logger.so
+vendor/lib64/libtlpd.so
+
+vendor/etc/selinux/vendor_seapp_contexts
+vendor/etc/selinux/selinux_denial_metadata
+vendor/etc/selinux/vendor_mac_permissions.xml
+vendor/etc/selinux/plat_sepolicy_vers.txt
+vendor/etc/selinux/plat_pub_versioned.cil
+vendor/etc/selinux/vendor_service_contexts
+vendor/etc/selinux/vendor_property_contexts
+vendor/etc/selinux/vendor_file_contexts
+vendor/etc/selinux/vndservice_contexts
+vendor/etc/selinux/vendor_hwservice_contexts
+vendor/etc/selinux/vendor_sepolicy.cil
