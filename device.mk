@@ -29,6 +29,10 @@ AB_OTA_POSTINSTALL_CONFIG += \
 PRODUCT_PACKAGES += \
     otapreopt_script
 
+# Screen density
+PRODUCT_AAPT_CONFIG := normal
+PRODUCT_AAPT_PREF_CONFIG := xxhdpi
+
 # ANT+
 PRODUCT_PACKAGES += \
     AntHalService-Soong \
