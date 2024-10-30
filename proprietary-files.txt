@@ -2136,6 +2136,18 @@ vendor/lib64/vendor.qti.hardware.trustedui@1.0.so
 vendor/lib64/vendor.qti.hardware.trustedui@1.1.so
 vendor/lib64/vendor.qti.hardware.trustedui@1.2.so
 
+# Vibrator
+vendor/bin/hw/vendor.qti.hardware.vibrator.service
+vendor/etc/init/vendor.qti.hardware.vibrator.service.rc
+vendor/etc/vintf/manifest/vendor.qti.hardware.vibrator.service.xml
+vendor/lib64/android.hardware.vibrator-V2-ndk.so
+vendor/lib64/hw/vibrator.default.so
+vendor/lib64/libaacvibrator.so
+vendor/lib64/libqtivibratoreffect.so
+vendor/lib64/libvibratorutils.so
+vendor/lib64/vendor.aac.hardware.richtap.vibrator-V1-ndk_platform.so
+vendor/lib64/vendor.qti.hardware.vibrator.impl.so
+
 # Vibrator Firmware
 vendor/firmware/haptic_ram.bin
 
