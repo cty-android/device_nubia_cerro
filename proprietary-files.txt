@@ -1104,7 +1104,7 @@ vendor/lib64/libfastcvdsp_stub.so
 -vendor/lib64/libfastcvopt.so
 
 # Fingerprint
-vendor/lib64/hw/fingerprint.gf95xx.default.so:vendor/lib64/hw/fingerprint.goodix_fod.so
+vendor/lib64/hw/fingerprint.gf95xx.default.so
 vendor/lib64/libgf_hal.so
 vendor/lib64/libvendor.goodix.hardware.biometrics.fingerprint.so
 
