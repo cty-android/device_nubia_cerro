@@ -47,7 +47,7 @@ ndk::ScopedAStatus Session::generateChallenge() {
 ndk::ScopedAStatus Session::revokeChallenge(int64_t challenge) {
     ALOGI("revokeChallenge: %ld", challenge);
     ALOGE("EXTDBG: Post Enroll");
-    mDevice->post_enroll(mDevice);
+    mDevice->post_enroll(mDevice, challenge);
     mCb->onChallengeRevoked(challenge);
 
     return ndk::ScopedAStatus::ok();
@@ -365,16 +365,16 @@ void Session::notify(const fingerprint_msg_t* msg) {
             mCb->onAcquired(result, vendorCode);
         } break;
         case FINGERPRINT_TEMPLATE_ENROLLING: {
-            ALOGD("onEnrollResult(fid=%d, gid=%d, rem=%d)", msg->data.enroll.finger.fid,
-                  msg->data.enroll.finger.gid, msg->data.enroll.samples_remaining);
-            mCb->onEnrollmentProgress(msg->data.enroll.finger.fid,
+            ALOGD("onEnrollResult(fid=%d, gid=%d, rem=%d)", msg->data.enroll.fid,
+                  msg->data.enroll.gid, msg->data.enroll.samples_remaining);
+            mCb->onEnrollmentProgress(msg->data.enroll.fid,
                                       msg->data.enroll.samples_remaining);
         } break;
         case FINGERPRINT_TEMPLATE_REMOVED: {
-            ALOGD("onRemove(fid=%d, gid=%d, rem=%d)", msg->data.removed.finger.fid,
-                  msg->data.removed.finger.gid, msg->data.removed.remaining_templates);
+            ALOGD("onRemove(fid=%d, gid=%d, rem=%d)", msg->data.removed.fid,
+                  msg->data.removed.gid, msg->data.removed.remaining_templates);
             std::vector<int> enrollments;
-            enrollments.push_back(msg->data.removed.finger.fid);
+            enrollments.push_back(msg->data.removed.fid);
             mCb->onEnrollmentsRemoved(enrollments);
         } break;
         case FINGERPRINT_AUTHENTICATED: {
@@ -397,10 +397,10 @@ void Session::notify(const fingerprint_msg_t* msg) {
             }
         } break;
         case FINGERPRINT_TEMPLATE_ENUMERATING: {
-            ALOGD("onEnumerate(fid=%d, gid=%d, rem=%d)", msg->data.enumerated.finger.fid,
-                  msg->data.enumerated.finger.gid, msg->data.enumerated.remaining_templates);
+            ALOGD("onEnumerate(fid=%d, gid=%d, rem=%d)", msg->data.enumerated.fid,
+                  msg->data.enumerated.gid, msg->data.enumerated.remaining_templates);
             static std::vector<int> enrollments;
-            enrollments.push_back(msg->data.enumerated.finger.fid);
+            enrollments.push_back(msg->data.enumerated.fid);
             if (msg->data.enumerated.remaining_templates == 0) {
                 mCb->onEnrollmentsEnumerated(enrollments);
                 enrollments.clear();
@@ -415,9 +415,9 @@ void Session::notify(const fingerprint_msg_t* msg) {
             int64_t error = msg->data.extend.data;
             ALOGD("onChallengeRevoked(error=%ld)", error);
         } break;
-        case FINGERPRINT_AUTHENTICATOR_ID_GOT: {
+        case FINGERPRINT_AUTHENTICATOR_ID_RETRIEVED: {
             int auth_id = msg->data.extend.data;
-            ALOGD("onAuthenticatorIDGet(auth_id=%ld)", auth_id);
+            ALOGD("onAuthenticatorIDRetrieved(auth_id=%ld)", auth_id);
             mCb->onAuthenticatorIdRetrieved(auth_id);
             if (mUdfpsHandler) {
                 mUdfpsHandler->onFingerUp();

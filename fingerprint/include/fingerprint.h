@@ -35,7 +35,7 @@ typedef enum fingerprint_msg_type {
     FINGERPRINT_TEMPLATE_ENUMERATING = 6,
     FINGERPRINT_CHALLENGE_GENERATED = 7, // Vendor Extension Message
     FINGERPRINT_CHALLENGE_REVOKED = 8, // Vendor Extension Message
-    FINGERPRINT_AUTHENTICATOR_ID_GOT = 9, // Vendor Extension Message
+    FINGERPRINT_AUTHENTICATOR_ID_RETRIEVED = 9, // Vendor Extension Message
     FINGERPRINT_AUTHENTICATOR_ID_INVALIDATED = 10, // Vendor Extension Message
 } fingerprint_msg_type_t;
 
@@ -81,21 +81,25 @@ typedef enum fingerprint_acquired_info {
 } fingerprint_acquired_info_t;
 
 typedef struct fingerprint_finger_id {
-    uint32_t gid;
-    uint32_t fid;
+    uint32_t gid; //18 remain
+    uint32_t fid; //0 gid
 } fingerprint_finger_id_t;
 
 typedef struct fingerprint_enroll {
-    fingerprint_finger_id_t finger;
+    uint32_t fid;
     /* samples_remaining goes from N (no data collected, but N scans needed)
      * to 0 (no more data is needed to build a template). */
-    uint32_t samples_remaining;
+    uint32_t samples_remaining; //2093xx fid
+    uint32_t gid;
+    //fingerprint_finger_id_t finger;
     uint64_t msg; /* Vendor specific message. Used for user guidance */
 } fingerprint_enroll_t;
 
 typedef struct fingerprint_iterator {
-    fingerprint_finger_id_t finger;
+    //fingerprint_finger_id_t finger;
+    uint32_t fid;
     uint32_t remaining_templates;
+    uint32_t gid;
 } fingerprint_iterator_t;
 
 typedef fingerprint_iterator_t fingerprint_enumerated_t;
@@ -177,7 +181,7 @@ typedef struct fingerprint_device {
      * Function return: 0 if the request is accepted
      *                  or a negative number in case of error, generally from the errno.h set.
      */
-    int (*post_enroll)(struct fingerprint_device *dev);
+    int (*post_enroll)(struct fingerprint_device *dev, uint64_t challenge);
 
     /*
      * Fingerprint enroll request:
@@ -207,7 +211,7 @@ typedef struct fingerprint_device {
     uint64_t (*get_authenticator_id)(struct fingerprint_device *dev);
 
     // Added by vendor HAL
-    uint64_t (*invalidate_authenticator_id)(struct fingerprint_device *dev, uint64_t auth_id);
+    uint64_t (*invalidate_authenticator_id)(struct fingerprint_device *dev);
 
     /*
      * Cancel pending enroll or authenticate, sending FINGERPRINT_ERROR_CANCELED
@@ -273,12 +277,13 @@ typedef struct fingerprint_device {
     int (*authenticate)(struct fingerprint_device *dev, uint64_t operation_id, uint32_t gid);
 
     /* Reserved for backward binary compatibility */
-    void *reserved[2];
+    void *reserved1[2];
 
     /*
      * Vendor fingerprint extension command.
      */
     int (*sendCustomizedCommand)(struct fingerprint_device __unused *dev, uint32_t cmd, uint32_t param);
+    void *reserved2[2];
 } fingerprint_device_t;
 
 typedef struct fingerprint_module {
